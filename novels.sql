@@ -20,9 +20,9 @@ CREATE TABLE novels (
 id INT auto_increment,
 title VARCHAR(255),
 authorId INT,
-createdAt DATETIME DEFAULT NOW(),
-updatedAt DATETIME DEFAULT NOW() ON UPDATE NOW(),
-PRIMARY KEY (ID),
+creaatedAt DATETIME DEFAULT NOW() ON UPDATE NOW(),
+PRItedAt DATETIME DEFAULT NOW(),
+updMARY KEY (ID),
 FOREIGN KEY(authorID) REFERENCES authors(id)
 );
 
