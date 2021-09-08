@@ -1,4 +1,4 @@
-const models = require('..models')
+const models = require('../models')
 
 const getAllAuthors = async (request, response) => {
   const authors = await models.Authors.findAll()
@@ -6,7 +6,7 @@ const getAllAuthors = async (request, response) => {
   return response.send(authors)
 }
 
-const getAllByAuthorID = async (request, response) => {
+const getAllByAuthorId = async (request, response) => {
   try {
     const { id } = request.params
 
@@ -24,4 +24,4 @@ const getAllByAuthorID = async (request, response) => {
   }
 }
 
-module.exports = { getAllAuthors, getAllByAuthorID }
+module.exports = { getAllAuthors, getAllByAuthorId }

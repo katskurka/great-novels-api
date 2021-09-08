@@ -1,4 +1,4 @@
-const models = require('..models')
+const models = require('../models')
 
 const getAllGenres = async (request, response) => {
   const genres = await models.Genres.findAll()
@@ -6,7 +6,7 @@ const getAllGenres = async (request, response) => {
   return response.send(genres)
 }
 
-const getAllByGenreID = async (request, response) => {
+const getAllByGenreId = async (request, response) => {
   try {
     const { id } = request.params
 
@@ -24,4 +24,4 @@ const getAllByGenreID = async (request, response) => {
   }
 }
 
-module.exports = { getAllGenres, getAllByGenreID }
+module.exports = { getAllGenres, getAllByGenreId }
