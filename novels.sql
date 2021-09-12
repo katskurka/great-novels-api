@@ -11,7 +11,8 @@ USE classics;
 
 CREATE TABLE authors (
 id INT auto_increment,
-authorName VARCHAR(255) NOT NULL,
+firstName VARCHAR(255) NOT NULL,
+lastName VARCHAR(255) NOT NULL,
 createdAt DATETIME DEFAULT NOW(),
 updatedAt DATETIME DEFAULT NOW() ON UPDATE NOW(),
 deletedAt DATETIME,
@@ -49,21 +50,21 @@ FOREIGN KEY(novelId) REFERENCES novels(id),
 FOREIGN KEY(genreId) REFERENCES genres(id)
 );
 
-INSERT INTO authors (authorName) VALUES ("Bram Stoker");
-INSERT INTO authors (authorName) VALUES ("Oscar Wilde");
-INSERT INTO authors (authorName) VALUES ("Alice Walker");
-INSERT INTO authors (authorName) VALUES ("Leo Tolstoy");
-INSERT INTO authors (authorName) VALUES ("Charles Dickens");
-INSERT INTO authors (authorName) VALUES ("Arthur Miller");
-INSERT INTO authors (authorName) VALUES ("Alexandre Dumas");
-INSERT INTO authors (authorName) VALUES ("Arthur Conan Doyle");
-INSERT INTO authors (authorName) VALUES ("Robert Louis Stevenson");
-INSERT INTO authors (authorName) VALUES ("Fyodor Dostoyevsky");
-INSERT INTO authors (authorName) VALUES ("Agatha Christie");
-INSERT INTO authors (authorName) VALUES ("Ray Bradbury");
-INSERT INTO authors (authorName) VALUES ( "George Orwell");
-INSERT INTO authors (authorName) VALUES ("H.G. Wells");
-INSERT INTO authors (authorName) VALUES ("Chinua Achebe");
+INSERT INTO authors (firstName, lastName) VALUES ("Bram", "Stoker");
+INSERT INTO authors (firstName, lastName) VALUES ("Oscar", "Wilde");
+INSERT INTO authors (firstName, lastName) VALUES ("Alice", "Walker");
+INSERT INTO authors (firstName, lastName) VALUES ("Leo", "Tolstoy");
+INSERT INTO authors (firstName, lastName) VALUES ("Charles", "Dickens");
+INSERT INTO authors (firstName, lastName) VALUES ("Arthur", "Miller");
+INSERT INTO authors (firstName, lastName) VALUES ("Alexandre", "Dumas");
+INSERT INTO authors (firstName, lastName) VALUES ("Arthur", "Conan Doyle");
+INSERT INTO authors (firstName, lastName) VALUES ("Robert", "Louis Stevenson");
+INSERT INTO authors (firstName, lastName) VALUES ("Fyodor", "Dostoyevsky");
+INSERT INTO authors (firstName, lastName) VALUES ("Agatha", "Christie");
+INSERT INTO authors (firstName, lastName) VALUES ("Ray", "Bradbury");
+INSERT INTO authors (firstName, lastName) VALUES ( "George", "Orwell");
+INSERT INTO authors (firstName, lastName) VALUES ("H.G.", "Wells");
+INSERT INTO authors (firstName, lastName) VALUES ("Chinua", "Achebe");
 
 INSERT INTO novels (title, authorId) VALUES ("Dracula", 1);
 INSERT INTO novels (title, authorId) VALUES ("The Picture of Dorian Gray", 2);

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "lint": "eslint --format codeframe .",
-    "lint:fix": "eslint --fix --format codeframe ."
+    "lint:fix": "eslint --fix --format codeframe .",
+    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./config/sequelize.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +22,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
-    "sequelize": "^5.22.4"
+    "sequelize": "^5.22.4",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
