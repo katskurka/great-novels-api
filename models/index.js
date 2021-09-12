@@ -3,9 +3,13 @@ const AuthorsModel = require('./authors')
 const GenresModel = require('./genres')
 const NovelGenresModel = require('./novelGenres')
 const NovelsModel = require('./novels')
+const allConfigs = require('../config/sequelize')
 
-const connection = new Sequelize('classics', 'classicsUser', 'booksRlife', {
-  host: 'localhost', dialect: 'mysql'
+const environment = process.env.NODE_ENV || 'development'
+const { username, password, host, dialect, database } = allConfigs[environment]
+
+const connection = new Sequelize(database, username, password, {
+  host, dialect, define: { timestamps: true }
 })
 
 const Authors = AuthorsModel(connection, Sequelize)
