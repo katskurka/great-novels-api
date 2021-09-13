@@ -39,7 +39,7 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable('novelGenre')
+    await queryInterface.dropTable('novelGenres')
     await queryInterface.dropTable('genres')
     await queryInterface.dropTable('novels')
 

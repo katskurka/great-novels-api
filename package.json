@@ -7,7 +7,8 @@
     "dev": "nodemon index.js",
     "lint": "eslint --format codeframe .",
     "lint:fix": "eslint --fix --format codeframe .",
-    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./config/sequelize.js"
+    "dev:migrate": "env-cmd sequelize db:migrate --env development --config ./config/sequelize.js",
+    "dev:migrate:undo": "env-cmd sequelize db:migrate:undo:all --env development --config ./config/sequelize.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^6.8.0",
     "nodemon": "^2.0.12"
   }
