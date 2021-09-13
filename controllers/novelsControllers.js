@@ -20,9 +20,8 @@ const getNovelByIdOrName = async (request, response) => {
           { title: { [models.Op.like]: `%${searchTerm}%` } },
         ],
       },
-      include: [
-        { model: models.Authors, include: [{ model: models.Genres }], },
-      ],
+      include: [{ model: models.Authors }, { model: models.Genres },
+      ]
     })
 
     return novel ? response.send(novel) : response.sendStatus(404)
