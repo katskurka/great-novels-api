@@ -5,5 +5,4 @@ const NovelGenres = (connection, Sequelize, Genres, Novels) => {
   }, { paranoid: true })
 }
 
-
 module.exports = NovelGenres

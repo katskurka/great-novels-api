@@ -9,7 +9,6 @@ app.use(express.json())
 
 app.get('/authors', getAllAuthors)
 
-
 app.get('/authors/:searchTerm', getAuthorByIdOrName)
 
 app.get('/genres', getAllGenres)

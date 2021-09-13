@@ -8,7 +8,6 @@ const getAllNovels = async (request, response) => {
   return response.send(novels)
 }
 
-
 const getNovelByIdOrName = async (request, response) => {
   try {
     const { searchTerm } = request.params
