@@ -6,22 +6,26 @@ const getAllAuthors = async (request, response) => {
   return response.send(authors)
 }
 
-const getAllByAuthorId = async (request, response) => {
+const getAuthorByIdOrName = async (request, response) => {
   try {
-    const { id } = request.params
+    const { searchTerm } = request.params
 
     const author = await models.Authors.findOne({
-      where: { id },
-      include: [{
-        model: models.Novels,
-        include: { model: models.Genres }
-      }]
+      where: {
+        [models.Op.or]: [
+          { id: searchTerm },
+          { lastName: { [models.Op.like]: `%${searchTerm}%` } },
+        ],
+      },
+      include: [
+        { model: models.Novels, include: [{ model: models.Genres }], },
+      ],
     })
 
     return author ? response.send(author) : response.sendStatus(404)
   } catch (error) {
-    return response.status(500).send('no authors found')
+    return response.status(500).send('No such author exists')
   }
 }
 
-module.exports = { getAllAuthors, getAllByAuthorId }
+module.exports = { getAllAuthors, getAuthorByIdOrName }

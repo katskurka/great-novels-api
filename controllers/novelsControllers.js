@@ -8,19 +8,27 @@ const getAllNovels = async (request, response) => {
   return response.send(novels)
 }
 
-const getAllByNovelId = async (request, response) => {
+
+const getNovelByIdOrName = async (request, response) => {
   try {
-    const { id } = request.params
+    const { searchTerm } = request.params
 
     const novel = await models.Novels.findOne({
-      where: { id },
-      include: [{ model: models.Authors }, { model: models.Genres }]
+      where: {
+        [models.Op.or]: [
+          { id: searchTerm },
+          { title: { [models.Op.like]: `%${searchTerm}%` } },
+        ],
+      },
+      include: [
+        { model: models.Authors, include: [{ model: models.Genres }], },
+      ],
     })
 
     return novel ? response.send(novel) : response.sendStatus(404)
   } catch (error) {
-    return response.status(500).send('no novels found')
+    return response.status(500).send('No such novels exists')
   }
 }
 
-module.exports = { getAllNovels, getAllByNovelId }
+module.exports = { getAllNovels, getNovelByIdOrName }
